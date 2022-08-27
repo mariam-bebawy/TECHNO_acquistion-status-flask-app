@@ -155,3 +155,4 @@ The app takes the data and predicts based on the classifiers QDA and Random Fore
 In order to deploy our model, [Heroku](https://www.heroku.com/) was used. Finally our model is hosted online and can be accessed through this link [startup-acquistion-status-app](https://technocolabs-flask-app.herokuapp.com/).  
 
 ---  
+[my-heroku-app](https://acquisition-status-flask-app.herokuapp.com/)  

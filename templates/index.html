@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flask-app</title>
+</head>
+<body>
+    <!-- title -->
+    <h1>acquisition status predictor</h1>
+
+    <!-- form to get data to predict -->
+    <!-- 'founded_at', 'investment_rounds', 'first_funding_at',
+       'last_funding_at', 'funding_rounds', 'funding_total_usd',
+       'first_milestone_at', 'last_milestone_at', 'milestones',
+       'relationships' -->
+    <form action='/result' method='POST'>
+        <div class='input-box'>
+            <label for="founded_at">Founded on the year</label>
+            <input type="number" min="1800" max="2099" step="1" id="founded_at" name="founded_at">
+        </div>
+        <div class='input-box'>
+            <label for="funding_rounds">Funding Rounds</label>
+            <input type="number" min="0" max="50000" step="1" id="funding_rounds" name="funding_rounds">
+        </div>
+        <div class='input-box'>
+            <label for="first_funding_at">First Funding At</label>
+            <input type="number" min="1800" max="2099" step="1" id="first_funding_at" name="first_funding_at">
+        </div>
+        <div class='input-box'>
+            <label for="last_funding_at">Last Funding At</label>
+            <input type="number" min="1800" max="2099" step="1" id="last_funding_at" name="last_funding_at">
+        </div>
+        <div class='input-box'>
+            <label for="funding_total_usd">Total Funding in USD</label>
+            <input type="number" id="funding_total_usd" name="funding_total_usd">
+        </div>
+        <div class='input-box'>
+            <label for="first_milestone_at">First Milestone At</label>
+            <input type="number" min="1800" max="2099" step="1" id="first_milestone_at" name="first_milestone_at">
+        </div>
+        <div class='input-box'>
+            <label for="last_milestone_at">Last Milestone At</label>
+            <input type="number" min="1800" max="2099" step="1" id="last_milestone_at" name="last_milestone_at">
+</div>
+        <div class='input-box'>
+            <label for="milestones">Milestones</label>
+            <input type="number" step="1" id="milestones" name="milestones">
+        </div>
+        <div class='input-box'>
+            <label for="relationships">Relationships</label>
+            <input type="number" step="1" id="relationships" name="relationships">
+        </div>
+        <!-- <div class='input-box'>
+            <label for="lat">lat</label>
+            <input type="number" step="1" id="lat" name="lat">
+        </div>
+        <div class='input-box'>
+            <label for="lng">lng</label>
+            <input type="number" step="1" id="lng" name="lng">
+        </div> -->
+        <div class='submit-btn'>
+            <a href='#'><input type='submit' value='submit'></a>
+        </div>
+    </form>
+    
+    <!-- result area -->
+    <br>
+    <h3>result : status prediction</h3>
+    <p>{{prediction}}</p>
+
+</body>
+</html>

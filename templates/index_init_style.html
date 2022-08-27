@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flask-app</title>
+  </head>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+  <body style="background-image: url('static/bg.jfif')">
+    <div class="container">
+      <div class="form-title text-center" style="margin: 50px 0px">
+        <h2>Startup Acquisition Analysis and Prediction</h2>
+      </div>
+      <div
+        class="row justify-content-center align-items-center"
+        style="margin: 10px 0px"
+      >
+        <form action="{{ url_for('result')}}" method="POST" class="bg-light">
+          <!-- <form action="/result" method="POST"> -->
+          <!-- 'founded_at', 'first_funding_at', 'last_funding_at', 'funding_rounds', 'funding_total_usd', 'first_milestone_at', 'last_milestone_at', 'milestones', 'relationships' -->
+          <!-- 1st row -- 'founded_at' -->
+          <div class="form-row">
+            <div class="col-md-12">
+              <label for="founded_at">Founded At</label>
+              <input
+                type="number"
+                min="1800"
+                max="2022"
+                step="1"
+                class="form-control"
+                name="founded_at"
+                id="founded_at"
+                placeholder="founded_at"
+                value="1800"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- 2nd row -- 'first_funding_at', 'last_funding_at', 'funding_rounds' -->
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="first_funding_at">First Funding At</label>
+              <input
+                type="number"
+                min="1800"
+                max="2022"
+                step="1"
+                class="form-control"
+                name="first_funding_at"
+                id="first_funding_at"
+                placeholder="first funding at"
+                value="1803"
+                required
+              />
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label for="last_funding_at">Last Funding At</label>
+              <input
+                type="number"
+                min="1800"
+                max="2022"
+                step="1"
+                class="form-control"
+                name="last_funding_at"
+                id="last_funding_at"
+                placeholder="last funding at"
+                value="2013"
+                required
+              />
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label for="funding_rounds">Fundings Rounds</label>
+              <input
+                type="number"
+                min="0"
+                max="50000"
+                step="1"
+                class="form-control"
+                id="funding_rounds"
+                name="funding_rounds"
+                placeholder="fundings rounds"
+                value="25"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- 3rd row -- 'funding_total_usd' -->
+          <div class="form-row">
+            <div class="col-md-12">
+              <label for="funding_total_usd">Total Fundings</label>
+              <input
+                type="number"
+                min="0"
+                step="1000"
+                class="form-control"
+                name="funding_total_usd"
+                id="funding_total_usd"
+                placeholder="total fundings in usd"
+                value="1000000"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- 4th row -- 'first_milestone_at', 'last_milestone_at' -->
+          <div class="form-row">
+            <div class="col-md-6">
+              <label for="first_milestone_at">First Milestone at</label>
+              <input
+                type="number"
+                min="1800"
+                max="2022"
+                step="1"
+                class="form-control"
+                name="first_milestone_at"
+                id="first_milestone_at"
+                placeholder="first milestone at"
+                value="1805"
+                required
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label for="last_milestone_at">Last Milestone at</label>
+              <input
+                type="number"
+                min="1800"
+                max="2022"
+                step="1"
+                class="form-control"
+                name="last_milestone_at"
+                id="last_milestone_at"
+                placeholder="last milestone at"
+                value="2019"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- 5th row -- 'milestones', 'relationships' -->
+          <div class="form-row">
+            <div class="col-md-6">
+              <label for="milestones">Milestones</label>
+              <input
+                type="number"
+                min="0"
+                step="1"
+                class="form-control"
+                name="milestones"
+                id="milestones"
+                placeholder="milestones"
+                value="50"
+                required
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label for="relationships">Relationships</label>
+              <input
+                type="number"
+                min="0"
+                step="1"
+                class="form-control"
+                name="relationships"
+                id="relationships"
+                placeholder="relationships"
+                value="12"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- submit button -->
+          <div class="row justify-content-center align-items-center" style="margin: 20px 0px;">
+            <button class="btn btn-primary" type="submit">check result</button>
+          </div>
+        </form>
+      </div>
+      <div class="form-result text-center" style="margin: 50px 0px">
+        <div class="row">
+          <div class="col-md-6"><h5>prediction result :</h5></div>
+          <div class="col-md-6" style="color: #a1a">
+            <h5>{{prediction}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
