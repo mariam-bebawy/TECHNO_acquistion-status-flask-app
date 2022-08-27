@@ -60,7 +60,8 @@ def valuePredictor(to_predict_list, model_ensemble, model_qda, model_rf):
 # 1800 25 30 1803 2012 1000000 1805 2019 50 12 300 212
 # 'founded_at', 'investment_rounds', 'first_funding_at', 'last_funding_at', 'funding_rounds', 'funding_total_usd', 'first_milestone_at', 'last_milestone_at', 'milestones', 'relationships'
 
-@app.route('/result', methods=['POST'])
+@app.route('/', methods=['POST'])
+# @app.route('/result', methods=['POST'])
 def result():
     model_ensemble = pickle.load(open('./models/ensemble.pkl', 'rb'))
     model_qda = pickle.load(open('./models/qda.pkl', 'rb'))
