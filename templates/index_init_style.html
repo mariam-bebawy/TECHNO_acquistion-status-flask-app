@@ -32,12 +32,13 @@
       padding: 0;
       margin: 0;
     }
-    h4.pred-title, h2.form-title {
-        text-shadow: 2px 2px 5px #0069D9;
+    h4.pred-title,
+    h2.form-title {
+      text-shadow: 2px 2px 5px #0069d9;
     }
     form {
-        padding: 10px;
-        border-radius: 10px;
+      padding: 10px;
+      border-radius: 10px;
     }
   </style>
   <body style="background-image: url('static/bg.jfif')">
@@ -57,6 +58,9 @@
             <div class="col-md-12">
               <label for="founded_at">Founded At</label>
               <input
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="founding year of the company"
                 type="number"
                 min="1800"
                 max="2022"
@@ -75,6 +79,9 @@
             <div class="col-md-4 mb-3">
               <label for="first_funding_at">First Funding At</label>
               <input
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="year of the first funding"
                 type="number"
                 min="1800"
                 max="2022"
@@ -90,6 +97,9 @@
             <div class="col-md-4 mb-3">
               <label for="last_funding_at">Last Funding At</label>
               <input
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="year of the last funding"
                 type="number"
                 min="1800"
                 max="2022"
@@ -105,6 +115,9 @@
             <div class="col-md-4 mb-3">
               <label for="funding_rounds">Fundings Rounds</label>
               <input
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="number of funding rounds"
                 type="number"
                 min="0"
                 max="50000"
@@ -123,6 +136,9 @@
             <div class="col-md-12">
               <label for="funding_total_usd">Total Fundings</label>
               <input
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="total funding money in US dollars"
                 type="number"
                 min="0"
                 step="1000"
@@ -140,6 +156,9 @@
             <div class="col-md-6">
               <label for="first_milestone_at">First Milestone at</label>
               <input
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="year of the first milestone"
                 type="number"
                 min="1800"
                 max="2022"
@@ -155,6 +174,9 @@
             <div class="col-md-6">
               <label for="last_milestone_at">Last Milestone at</label>
               <input
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="year of the last milestone"
                 type="number"
                 min="1800"
                 max="2022"
@@ -173,6 +195,9 @@
             <div class="col-md-6">
               <label for="milestones">Milestones</label>
               <input
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="number of milestones"
                 type="number"
                 min="0"
                 step="1"
@@ -187,6 +212,9 @@
             <div class="col-md-6">
               <label for="relationships">Relationships</label>
               <input
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="number of relationships"
                 type="number"
                 min="0"
                 step="1"
@@ -200,19 +228,38 @@
           </div>
 
           <!-- submit button -->
-          <div class="row justify-content-center align-items-center" style="margin: 10px 0 0 0;">
-            <button class="btn btn-primary" type="submit">check result</button>
+          <div
+            class="row justify-content-center align-items-center"
+            style="margin: 10px 0 0 0"
+          >
+            <button
+              class="btn btn-primary"
+              type="submit"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="click to submit entries"
+            >
+              check result
+            </button>
           </div>
         </form>
       </div>
       <div class="form-result text-center" style="margin: 25px 0 0 0">
         <div class="row">
-          <div class="col-md-6"><h4 class="pred-title">prediction result :</h4></div>
-          <div class="col-md-6" style="color: #0069D9">
+          <div class="col-md-6">
+            <h4 class="pred-title">prediction result :</h4>
+          </div>
+          <div class="col-md-6" style="color: #0069d9">
             <h4>{{prediction}}</h4>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+      $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
   </body>
 </html>
