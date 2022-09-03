@@ -23,16 +23,17 @@ def valuePredictor(to_predict_list, model_qda, model_rf):
         result = 'operating'
     elif pred == 1:
         preds = model_rf.predict(to_predict)
+        result = str(preds[0])
     # 0 : operating, 1 : acquired, 2 : closed, 3 : ipo
-        pred = preds[0]
-        if pred == 0:
-            result = 'operating'
-        elif pred == 1:
-            result = 'acquired'
-        elif pred == 2:
-            result = 'closed'
-        elif pred == 3:
-            result = 'ipo'
+        # pred = preds[0]
+        # if pred == 0:
+        #     result = 'operating'
+        # elif pred == 1:
+        #     result = 'acquired'
+        # elif pred == 2:
+        #     result = 'closed'
+        # elif pred == 3:
+        #     result = 'ipo'
 
     return result
 
@@ -42,14 +43,18 @@ def valuePredictor(to_predict_list, model_qda, model_rf):
 
 @app.route('/result', methods=['POST'])
 def result():
-    model_qda = pickle.load(open('./models/qda.pkl', 'rb'))
-    model_rf = pickle.load(open('./models/rf.pkl', 'rb'))
+    # model_qda = pickle.load(open('./models/qda.pkl', 'rb'))
+    # model_rf = pickle.load(open('./models/rf.pkl', 'rb'))
+    qda_alt = 'https://drive.google.com/file/d/1U7vX7m-KkPfj56krKJ2Vz74lnJHAMxuC/view?usp=sharing'
+    rf_alt = 'https://drive.google.com/file/d/1q-kLAIr2PjsplJYkhfh_ypzlydRPUIZ5/view?usp=sharing'
+    model_qda_alt = pickle.load(open(qda_alt), 'rb')
+    model_rf_alt = pickle.load(open(rf_alt), 'rb')
 
     if request.method == 'POST':
         to_predict_list = request.form.to_dict()
         to_predict_list = list(to_predict_list.values())
         to_predict_list = list(map(float, to_predict_list))
-        result = valuePredictor(to_predict_list, model_qda, model_rf)
+        result = valuePredictor(to_predict_list, model_qda_alt, model_rf_alt)
         pred = str(result)
         return render_template(html_name, prediction=pred)
 
