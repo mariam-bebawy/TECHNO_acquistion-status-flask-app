@@ -32,6 +32,13 @@
       padding: 0;
       margin: 0;
     }
+    h1, h2, h3, h4, h5, h6 {
+        text-shadow: 2px 2px 5px #0069D9;
+    }
+    form {
+        padding: 10px;
+        border-radius: 10px;
+    }
   </style>
   <body style="background-image: url('static/bg.jfif')">
     <div class="container">
@@ -42,7 +49,7 @@
         class="row justify-content-center align-items-center"
         style="margin: 10px 0px"
       >
-        <form action="{{ url_for('result')}}" method="POST" class="bg-light">
+        <form action="{{ url_for('result') }}" method="POST" class="bg-light">
           <!-- <form action="/result" method="POST"> -->
           <!-- 'founded_at', 'first_funding_at', 'last_funding_at', 'funding_rounds', 'funding_total_usd', 'first_milestone_at', 'last_milestone_at', 'milestones', 'relationships' -->
           <!-- 1st row -- 'founded_at' -->
@@ -193,16 +200,16 @@
           </div>
 
           <!-- submit button -->
-          <div class="row justify-content-center align-items-center" style="margin: 20px 0px;">
+          <div class="row justify-content-center align-items-center" style="margin: 10px 0 0 0;">
             <button class="btn btn-primary" type="submit">check result</button>
           </div>
         </form>
       </div>
-      <div class="form-result text-center" style="margin: 50px 0px">
+      <div class="form-result text-center" style="margin: 25px 0 0 0">
         <div class="row">
-          <div class="col-md-6"><h5>prediction result :</h5></div>
-          <div class="col-md-6" style="color: #a1a">
-            <h5>{{prediction}}</h5>
+          <div class="col-md-6"><h4>prediction result :</h4></div>
+          <div class="col-md-6" style="color: #0069D9">
+            <h4>{{prediction}}</h4>
           </div>
         </div>
       </div>
